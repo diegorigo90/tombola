@@ -1,0 +1,61 @@
+<div class="tombola row">
+  <div class="col-12 col-lg-8">
+    <div class="tabellone">
+      <ng-container *ngFor="let item of info.numeriTabellone">
+        <div
+          class="border border-dark numero p-1"
+          [ngClass]="{
+            estratto: item.estratto,
+            attuale: item.valore == info.numeroEstratto
+          }"
+        >
+          {{ item.valore }}
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4 destra">
+    <title titolo="Tombola"></title>
+    <button class="btn btn-danger btn-lg" (click)="nuovaPartita()">
+      <i class="fa fa-youtube-play mr-3"></i> Nuova partita
+    </button>
+    <div class="informazioni mt-5">
+      <span class="grassetto mr-2">Ultimo estratto:</span>
+      <span *ngIf="info.numeroEstratto">{{ info.numeroEstratto }}</span>
+    </div>
+    <div class="informazioni mt-2">
+      <span class="grassetto mr-2">Precedenti:</span>
+      <span *ngIf="info.numeriPrecedenti.length > 0">{{
+        elenco(info.numeriPrecedenti)
+      }}</span>
+    </div>
+    <button
+      class="btn btn-success btn-lg mt-5"
+      [disabled]="display"
+      (click)="estrai()"
+    >
+      <i class="fa fa-cog fa-spin mr-3"></i> Estrai
+    </button>
+    <button
+      class="btn btn-info btn-lg mt-5"
+      [disabled]="display"
+      (click)="ultimo()"
+    >
+      <i class="fa fa-repeat mr-3"></i>Ultimo estratto
+    </button>
+    <button class="btn btn-secondary btn-lg mt-5" (click)="visualizzaStoria()">
+      <i class="fa fa-line-chart mr-3"></i>Visualizza storico
+    </button>
+    <div class="mt-2 informazioni" *ngIf="mostraStorico">
+      {{ info.storico.join(" , ") }}
+    </div>
+  </div>
+</div>
+
+<p-dialog [closable]="false" [(visible)]="display" (click)="closeModal()">
+  <p id="numeroEstratto">{{ info.numeroEstratto }}</p>
+</p-dialog>
+<p-confirmDialog
+  header="Confirmation"
+  icon="pi pi-exclamation-triangle"
+></p-confirmDialog>

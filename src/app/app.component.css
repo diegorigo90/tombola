@@ -1,0 +1,95 @@
+.numero {
+  width: 5vw;
+  height: 5vw;
+  font-size: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabellone {
+  padding: 20px;
+  width: 53vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.estratto {
+  background: chocolate;
+  color: white;
+}
+
+.informazioni {
+  font-size: x-large;
+}
+
+.attuale {
+  background: rgb(255, 207, 86);
+  color: black;
+}
+
+.numeroEstratto {
+  background: brown;
+  color: ghostwhite;
+  font-size: 100px;
+}
+
+.grassetto {
+  font-weight: bold;
+}
+
+#numeroEstratto {
+  font-size: 1200%;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.pulsanti {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sinistra {
+  width: 70vw;
+}
+
+.destra {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.tombola {
+  padding: 3vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 850px) {
+  .tombola {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+  }
+
+  .tabellone {
+    padding: 0;
+    width: 100%;
+  }
+  .numero {
+    width: 9vw;
+    height: 9vw;
+    font-size: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
